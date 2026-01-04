@@ -9,8 +9,10 @@ End-to-end SOC detection lab using **Windows Event Logs (4688)**, **Sysmon**, an
 ![SOC Architecture](architecture/soc-architecture.png)
 
 **Description**  
+
 This diagram shows the end-to-end SOC detection pipeline used in this lab.  
 Windows endpoints generate Security Event Logs (4688) and Sysmon telemetry, which are forwarded via the Splunk Universal Forwarder to Splunk Enterprise for detection, investigation, and MITRE ATT&CK mapping.
+
 ---
 
 ## 🎯 Objective
