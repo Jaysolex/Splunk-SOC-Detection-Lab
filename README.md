@@ -152,22 +152,28 @@ Detected activity mapped to MITRE ATT&CK techniques, including:
 🛡️ MITRE ATT&CK Technique Mapping (Explanation)
 
 🔹 T1059.001 – PowerShell
+
 **What it is**  
+
 Abuse of PowerShell, a powerful Windows scripting engine commonly used by attackers.
 
 **Why attackers use it**
+
 - Installed by default
 - Powerful scripting and execution
 - Often trusted by security controls
 
 **How it appears in this lab**
+
 - Event ID 4688 process creation
 - `powershell.exe` as `NewProcessName`
 - Suspicious command-line usage
 
+
 🔹 T1218.011 – Rundll32
 
-What it is
+**What it is**
+
 Abuse of rundll32.exe, a legitimate Windows binary used to execute code within DLL files.
 
 Why attackers use it
@@ -188,10 +194,11 @@ Parent processes such as cmd.exe or unexpected system binaries
 
 🔹 T1218.010 – Regsvr32
 
-What it is
+**What it is**
+
 Abuse of regsvr32.exe, normally used to register or unregister DLLs.
 
-Why attackers use it
+**Why attackers use it**
 
 Trusted Microsoft binary
 
@@ -207,7 +214,8 @@ Silent execution flags (e.g. /s)
 
 Abnormal parent–child process relationships
 
-🛡️ Why This Matters
+
+🛡️ **Why This Matters**
 
 Mapping detections to MITRE ATT&CK allows SOC analysts to:
 
@@ -220,6 +228,7 @@ Prioritize alerts based on known adversary techniques
 Communicate findings clearly during investigations
 
 This lab demonstrates how raw Windows telemetry can be transformed into threat-informed, MITRE-aligned detections.
+
 
 ---
 
