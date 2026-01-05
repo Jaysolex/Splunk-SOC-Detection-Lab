@@ -3,13 +3,32 @@ index=main sourcetype=XmlWinEventLog:Security
 | rex "<Data Name='NewProcessName'>(?<NewProcessName>[^<]+)"
 | rex "<Data Name='CommandLine'>(?<CommandLine>[^<]+)"
 | rex "<Data Name='ParentProcessName'>(?<ParentProcessName>[^<]+)"
-| eval proc=lower(NewProcessName)
+| eval proc=lower(NewProcessName), cmd=lower(CommandLine), parent=lower(ParentProcessName)
+
+| where like(proc,"%\\powershell.exe")
+   OR like(proc,"%\\rundll32.exe")
+   OR like(proc,"%\\regsvr32.exe")
+   OR like(proc,"%\\mshta.exe")
+   OR like(proc,"%\\certutil.exe")
+
+| where NOT like(proc,"%\\splunk%")
+  AND NOT like(parent,"%\\splunk%")
+
+| eval suspicious=case(
+    like(proc,"%\\powershell.exe") AND (like(cmd,"%-enc%") OR like(cmd,"%iex%") OR like(cmd,"%downloadstring%") OR like(cmd,"%frombase64string%")), "yes",
+    like(proc,"%\\rundll32.exe") AND (like(cmd,"%,%") OR like(cmd,"%javascript:%") OR like(cmd,"%http%")), "yes",
+    like(proc,"%\\regsvr32.exe") AND (like(cmd,"%/i:%") OR like(cmd,"%http%") OR like(cmd,"%scrobj.dll%")), "yes",
+    like(proc,"%\\mshta.exe") AND (like(cmd,"%http%") OR like(cmd,"%javascript:%") OR like(cmd,"%vbscript:%")), "yes",
+    like(proc,"%\\certutil.exe") AND (like(cmd,"%-urlcache%") OR like(cmd,"%-split%") OR like(cmd,"%-f%")), "yes",
+    1=1, "no"
+  )
+
 | eval technique_id=case(
     like(proc,"%\\powershell.exe"), "T1059.001",
     like(proc,"%\\rundll32.exe"),   "T1218.011",
     like(proc,"%\\regsvr32.exe"),   "T1218.010",
     like(proc,"%\\mshta.exe"),      "T1218.005",
-    like(proc,"%\\certutil.exe"),   "T1140",
+    like(proc,"%\\certutil.exe"),   "T1105",
     1=1, "N/A"
   )
 | eval technique_name=case(
@@ -17,9 +36,9 @@ index=main sourcetype=XmlWinEventLog:Security
     technique_id="T1218.011","Rundll32",
     technique_id="T1218.010","Regsvr32",
     technique_id="T1218.005","Mshta",
-    technique_id="T1140","Deobfuscate/Decode Files or Information",
+    technique_id="T1105","Ingress Tool Transfer",
     1=1,"Other"
   )
-| where technique_id!="N/A"
-| table _time host NewProcessName CommandLine ParentProcessName technique_id technique_name
+
+| table _time host ParentProcessName NewProcessName CommandLine suspicious technique_id technique_name
 | sort - _time
