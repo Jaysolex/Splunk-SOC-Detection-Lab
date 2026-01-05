@@ -55,21 +55,27 @@ The following techniques and LOLBins are monitored:
 ## 🧪 Detection Walkthrough (Step-by-Step)
 
 ### 1️⃣ Architecture Overview  
-**Screenshot:** ![SOC Architecture](architecture/soc-architecture.png)  
+**Screenshot:** 
+
+![SOC Architecture](architecture/soc-architecture.png)  
 
 High-level view of the SOC pipeline from endpoint to SIEM.
 
 ---
 
 ### 2️⃣ Sysmon Installed and Running  
-**Screenshot:**:- ![Alt text](screenshots/02-sysmon-installed.png)
+**Screenshot:**:- 
+
+![Alt text](screenshots/02-sysmon-installed.png)
 
 Confirms Sysmon is installed and actively generating enhanced telemetry.
 
 ---
 
 ### 3️⃣ Splunk Universal Forwarder Running  
-**Screenshot:**  ![Alt text](screenshots/03-splunk-forwarder-running.png)
+**Screenshot:** 
+
+![Alt text](screenshots/03-splunk-forwarder-running.png)
   
 Validates log forwarding from the Windows endpoint to Splunk.
 
