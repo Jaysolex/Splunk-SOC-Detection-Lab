@@ -112,25 +112,36 @@ Extracted fields include:
 ---
 
 ### 7️⃣ LOLBin Detection – Rundll32  
-**Screenshot:** `07-lolbin-rundll32-detection.png`  
+**Screenshot:** 
+
+![Alt text](screenshots/07-lolbin-rundll32-detection.png)
+
 Identifies Rundll32 executions consistent with LOLBin activity.
 
 ---
 
 ### 8️⃣ Command-Line Analysis  
-**Screenshot:** `08-commandline-analysis.png`  
+**Screenshot:** 
+
+![Alt text](screenshots/08-commandline-analysis.png)
+
 Analyzes suspicious command-line arguments associated with LOLBins.
 
 ---
 
 ### 9️⃣ Parent–Child Process Analysis  
-**Screenshot:** `09-parent-child-analysis.png`  
+**Screenshot:** 
+
+![Alt text](screenshots/09-parent-child-analysis.png)
+
 Visualizes abnormal parent–child process relationships.
 
 ---
 
 ### 🔟 MITRE ATT&CK Mapping  
-**Screenshot:** `10-mitre-attack-mapping.png`  
+**Screenshot:** 
+
+![Alt text](screenshots/10-mitre-attack-mapping.png)  
 
 Detected activity mapped to MITRE ATT&CK techniques, including:
 
