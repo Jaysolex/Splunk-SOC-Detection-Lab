@@ -39,7 +39,7 @@ Windows endpoints generate **Security Event Logs (4688)** and **Sysmon telemetry
 
 ---
 
-## 🧪 Detection Use Cases
+## 🛡️ Detection Use Cases
 
 The following techniques and LOLBins are monitored:
 
@@ -52,7 +52,7 @@ The following techniques and LOLBins are monitored:
 
 ---
 
-## 🧪 Detection Walkthrough (Step-by-Step)
+## 🛡️ Detection Walkthrough (Step-by-Step)
 
 ### 1️⃣ Architecture Overview  
 **Screenshot:** 
@@ -151,7 +151,7 @@ Detected activity mapped to MITRE ATT&CK techniques, including:
 
 ---
 
-## 📊 Detection Logic
+## 🛡️ Detection Logic
 
 - Event ID 4688 process creation monitoring
 - Command-line inspection
