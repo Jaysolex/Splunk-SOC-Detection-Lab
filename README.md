@@ -1,3 +1,8 @@
+![Release](https://img.shields.io/github/v/release/Jaysolex/soc-elk-threat-hunting-lab)
+![Status](https://img.shields.io/badge/status-complete-brightgreen)
+![Focus](https://img.shields.io/badge/focus-SOC%20Threat%20Hunting-blue)
+
+
 # 🛡️ Splunk SOC Detection Lab
 
 End-to-end SOC detection lab using **Windows Event Logs (Event ID 4688)**, **Sysmon**, and **Splunk** to detect **LOLBins** mapped to the **MITRE ATT&CK framework**.
