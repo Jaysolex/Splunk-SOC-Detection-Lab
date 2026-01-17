@@ -3,7 +3,7 @@
 ![Focus](https://img.shields.io/badge/focus-SOC%20Threat%20Hunting-blue)
 
 
-# 🛡️ Splunk SOC Detection Lab
+# Splunk SOC Detection Lab
 
 End-to-end SOC detection lab using **Windows Event Logs (Event ID 4688)**, **Sysmon**, and **Splunk** to detect **LOLBins** mapped to the **MITRE ATT&CK framework**.
 
@@ -24,7 +24,7 @@ Key objectives:
 
 ---
 
-## 🛡️ SOC Architecture
+## SOC Architecture
 
 ![SOC Architecture](architecture/soc-architecture.png)
 
@@ -36,7 +36,7 @@ Windows endpoints generate **Security Event Logs (4688)** and **Sysmon telemetry
 
 ---
 
-## 🔍 Data Sources
+## Data Sources
 
 - Windows Security Event Logs (Event ID 4688)
 - Sysmon (Process Create, Command Line)
@@ -44,7 +44,7 @@ Windows endpoints generate **Security Event Logs (4688)** and **Sysmon telemetry
 
 ---
 
-## 🛡️ Detection Use Cases
+## Detection Use Cases
 
 The following techniques and LOLBins are monitored:
 
@@ -154,9 +154,9 @@ Detected activity mapped to MITRE ATT&CK techniques, including:
 - **T1218.011 – Rundll32**
 - **T1218.010 – Regsvr32**
 
-🛡️ MITRE ATT&CK Technique Mapping (Explanation)
+MITRE ATT&CK Technique Mapping (Explanation)
 
-🔹 T1059.001 – PowerShell
+### T1059.001 – PowerShell
 
 **What it is**  
 
@@ -175,7 +175,7 @@ Abuse of PowerShell, a powerful Windows scripting engine commonly used by attack
 - Suspicious command-line usage
 
 
-🔹 T1218.011 – Rundll32
+### T1218.011 – Rundll32
 
 **What it is**
 
@@ -197,7 +197,8 @@ Suspicious command-line arguments
 
 Parent processes such as cmd.exe or unexpected system binaries
 
-🔹 T1218.010 – Regsvr32
+
+### T1218.010 – Regsvr32
 
 **What it is**
 
@@ -220,7 +221,7 @@ Silent execution flags (e.g. /s)
 Abnormal parent–child process relationships
 
 
-🛡️ **Why This Matters**
+**Why This Matters**
 
 Mapping detections to MITRE ATT&CK allows SOC analysts to:
 
@@ -237,7 +238,7 @@ This lab demonstrates how raw Windows telemetry can be transformed into threat-i
 
 ---
 
-## 📊 Detection Logic
+## Detection Logic
 
 - Event ID 4688 process creation monitoring
 - Command-line inspection
@@ -258,7 +259,7 @@ This lab demonstrates how raw Windows telemetry can be transformed into threat-i
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```text
 splunk-soc-detection-lab/
