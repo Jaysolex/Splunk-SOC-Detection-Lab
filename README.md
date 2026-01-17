@@ -9,7 +9,7 @@ End-to-end SOC detection lab using **Windows Event Logs (Event ID 4688)**, **Sys
 
 ---
 
-## 🎯 Objective
+## Objective
 
 This lab demonstrates a **real-world SOC detection pipeline**, from Windows telemetry generation to SIEM-based detection and investigation.
 
@@ -57,7 +57,7 @@ The following techniques and LOLBins are monitored:
 
 ---
 
-## 🧪 Detection Walkthrough (Step-by-Step)
+## Detection Walkthrough (Step-by-Step)
 
 ### 1️⃣ Architecture Overview  
 **Screenshot:** 
@@ -247,7 +247,7 @@ This lab demonstrates how raw Windows telemetry can be transformed into threat-i
 
 ---
 
-## 🛠 Tools Used
+## Tools Used
 
 - Splunk Enterprise
 - Splunk Universal Forwarder
